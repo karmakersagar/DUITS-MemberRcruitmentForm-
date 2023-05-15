@@ -3,8 +3,8 @@ django-crispy-forms
 bootstrap4
 psycopg2-binary
 pillow
-crispy_bootstrap5
-multiselectfield
+crispy-bootstrap5
+django-multiselectfield
 django-jet-reboot
 google-api-python-client==1.4.1
 feedparser
