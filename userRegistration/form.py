@@ -44,21 +44,36 @@ class userLoginForm(forms.ModelForm):
 class MyUserForm(forms.ModelForm):
     # Validations
     name = forms.CharField(label='Name', max_length=100, 
+                           validators=[RegexValidator(r'^[a-zA-Z]+$', message="Only letters are allowed.")],
         widget=forms.TextInput(attrs={'placeholder': 'Enter Your Name',
         'style'  :'font-size:13px, text-transform : capitalized' }))
     department = forms.CharField(label='Department', max_length=100,
+                                 validators=[RegexValidator(
+                                     r'^[a-zA-Z]+$', message="Only letters are allowed.")],
                            widget=forms.TextInput(attrs={'placeholder': 'Enter Your Department Name'}))
     session = forms.CharField(label='Session', max_length=100,
                            widget=forms.TextInput(attrs={'placeholder': 'Enter Your Session'}))
     registration_number = forms.CharField(label='Registration Number', max_length=100,
+                                          validators=[RegexValidator(
+                                              r'^\d{10}$',
+                                              message="Enter Your Valid Registration Number .")],
                               widget=forms.TextInput(attrs={'placeholder': 'Enter Registration Number'}))
     hall = forms.CharField(label='Hall', max_length=100,
+                           validators=[RegexValidator(
+                               r'^[a-zA-Z]+$', message="Only letters are allowed.")],
                                  widget=forms.TextInput(attrs={'placeholder': 'Enter Your Hall Name'}))
     email = forms.CharField(label='Email', max_length=100,
+                            validators=[RegexValidator(
+                                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+                                message="Enter a valid email address.")],
                                  widget=forms.TextInput(attrs={'placeholder': 'Enter Email'}))
     fathers_name = forms.CharField(label='Fathers_name', max_length=100,
+                                   validators=[RegexValidator(
+                                       r'^[a-zA-Z]+$', message="Only letters are allowed.")],
                            widget=forms.TextInput(attrs={'placeholder': 'Enter Your Hall Name'}))
     mothers_name = forms.CharField(label='mothers_name', max_length=100,
+                                   validators=[RegexValidator(
+                                       r'^[a-zA-Z]+$', message="Only letters are allowed.")],
                            widget=forms.TextInput(attrs={'placeholder': 'Enter Your Hall Name'}))
     present_address = forms.CharField(label='Present_Address', max_length=100,
                            widget=forms.TextInput(attrs={'placeholder': 'Enter Your Present Address'}))
@@ -67,7 +82,43 @@ class MyUserForm(forms.ModelForm):
     contact_no = forms.CharField(label='Contact_Number', max_length=20, validators=[
         RegexValidator(
             r'^(?:\+88)?01[3-9]\d{8}$', message="Enter a valid phone number starting with +8801")
-    ], widget=forms.TextInput(attrs={'placeholder': 'Enter Contact Number such as +8801xxxxxxx'}))
+    ], widget=forms.TextInput(attrs={'placeholder': 'Enter Contact Number such as 01xxxxxxx'}))
+    social_media_link_1 = forms.CharField(label='Social Media Link_1', max_length=100,
+                                          validators=[RegexValidator(r'^(https?:\/\/)?(www\.)?facebook\.com\/[a-zA-Z0-9.]+\/?$',
+                                                      message="Enter a valid Facebook profile URL.")],
+                                      widget=forms.TextInput(attrs={'placeholder': 'Enter Your Facebook Profile link'}))
+    ssc_institution = forms.CharField(label='Ssc Institution', max_length=100,
+                                          widget=forms.TextInput(attrs={'placeholder': 'Enter Your High School'}))
+    
+    hsc_institution = forms.CharField(label='Hsc Institution', max_length=100,
+                                      widget=forms.TextInput(attrs={'placeholder': 'Enter Your College'}))
+    
+    hobbies_interest = forms.CharField(label='Hobbies and Interests', max_length=100,
+                                       validators=[RegexValidator(
+                                           r'^[a-zA-Z0-9\s\.,!?@#$%^&*()\-_+=~`|:;"\'<>\{\}\[\]\\/]*$',
+                                           message="Only alphanumeric characters and punctuation marks are allowed."
+                                       )],
+                                      widget=forms.TextInput(attrs={'placeholder': 'Write about your hobies and interest'}))
+    why_join_duits = forms.CharField(label='Hobbies and Interests', max_length=100,
+                                       validators=[RegexValidator(
+                                           r'^[a-zA-Z0-9\s\.,!?@#$%^&*()\-_+=~`|:;"\'<>\{\}\[\]\\/]*$',
+                                           message="Only alphanumeric characters and punctuation marks are allowed."
+                                       )],
+                                       widget=forms.TextInput(attrs={'placeholder': 'Write about your hobies and interest'}))
+    information_tech_interest = forms.CharField(label='Information Tech Interest', max_length=100,
+                                    validators=[RegexValidator(
+                                        r'^[a-zA-Z0-9\s\.,!?@#$%^&*()\-_+=~`|:;"\'<>\{\}\[\]\\/]*$',
+                                        message="Only alphanumeric characters and punctuation marks are allowed."
+                                    )],
+                                    widget=forms.TextInput(attrs={'placeholder': 'Write something about your tech interest'}))
+    other_club_member = forms.CharField(label='Other Club Member', max_length=100,
+                                    validators=[RegexValidator(
+                                        r'^[a-zA-Z0-9\s\.,!?@#$%^&*()\-_+=~`|:;"\'<>\{\}\[\]\\/]*$',
+                                        message="Only alphanumeric characters and punctuation marks are allowed."
+                                    )],
+                                    widget=forms.TextInput(attrs={'placeholder': 'If You are member of other club please mention those cluub name'}))
+
+
 
     def clean_contact_no(self):
             contact_no = self.cleaned_data['contact_no']

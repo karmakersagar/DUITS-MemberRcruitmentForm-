@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import never_cache
 from django.views.decorators.cache import cache_control
 from django.contrib.auth import logout
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 
@@ -28,11 +30,19 @@ def home(request):
 def regisration(request):
     if request.method == 'POST':
         print('1')
+        email = request.user.email
+        print(email)
         form = MyUserForm(request.POST, request.FILES)
         if form.is_valid():
             print(11)
             form.save()
             messages.success(request, "data submitted !!!")
+            # Send email
+            subject = 'Member Registration Data Submission Succesful'
+            message = 'Your Member registration form for Dhaka University IT Society has been submitted successfully!!!.'
+            from_email = settings.EMAIL_HOST_USER
+            recipient_list = [email]
+            send_mail(subject, message, from_email, recipient_list)
             return redirect('/home')
         if not form.is_valid():
             print(form.errors)

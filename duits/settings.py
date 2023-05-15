@@ -116,6 +116,14 @@ DATABASES = {
     }
 }
 
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use SMTP email backend
+EMAIL_HOST = 'smtp.gmail.com'  # SMTP server address
+EMAIL_PORT = 587  # SMTP server port
+EMAIL_USE_TLS = True  # Use TLS encryption
+EMAIL_HOST_USER = 'karmakersagar25@gmail.com'  # SMTP email account
+EMAIL_HOST_PASSWORD = 'zscqhxuiwuwwjtuz'  # SMTP email account password
+DEFAULT_FROM_EMAIL = 'karmakersagar25@gmail.com'  # Default email address
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
