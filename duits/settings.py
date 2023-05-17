@@ -109,10 +109,10 @@ PASSWORD_HASHERS = [
 DATABASES = {
      'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'duits',
-        'USER': 'duits_user',
-        'PASSWORD': 'w9JPr46j8noOlIw2g2H5dCSkyWWkg9Bc',
-        'HOST': 'dpg-chih4n67avj2ivd0c5rg-a.oregon-postgres.render.com',
+        'NAME': 'duits_u9wd',
+        'USER': 'duits_u9wd_user',
+        'PASSWORD': 'Ff8tJEpSonKbx0hVHZ8yG5tTqAWqlyCn',
+        'HOST': 'dpg-chihmn1mbg557heuivt0-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }
