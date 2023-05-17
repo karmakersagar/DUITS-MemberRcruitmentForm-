@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import CustomUser,MyForm
+from django.utils.html import format_html
 # Register your models here.
 class CustomUserAdmin(BaseUserAdmin):
       list_display = ('registration_no','email','is_admin','is_active')
@@ -21,8 +22,10 @@ class CustomUserAdmin(BaseUserAdmin):
 admin.site.register(CustomUser,CustomUserAdmin)
 
 class MyFormAdmin(admin.ModelAdmin):
-      list_display = ['image',
+      list_filter=['situation']
+      list_display = [
                   'name',
+                  'image',
                   'department',
                   'session',
                   'registration_number',
@@ -48,7 +51,32 @@ class MyFormAdmin(admin.ModelAdmin):
                   'why_join_duits',
                   'information_tech_interest',
                   'other_club_member',
-                  'skillsets']
+                  'skillsets',
+                  'status',
+                  '_']
       search_fields = ['registration_number']
       list_per_page= 50
+
+      #change icon
+      def _(self  , obj) :
+            if obj.situation =='Accepted' :
+                  return True
+            elif obj.situation == 'Rejected' : 
+                  return False
+            else :
+                  return None
+      _.boolean = True
+      
+
+      def status(self, obj):
+            if obj.situation == 'Accepted':
+                 color = '#00ff00'
+            elif obj.situation == 'Rejected':
+                 color = '#ff0000'
+                  
+            else:
+                 color = '#0000ff'
+            return format_html('<strong><p style="color: {}">{}</p></strong>', color, obj.situation)
+
+      status.allow_tags = True
 admin.site.register(MyForm,MyFormAdmin)

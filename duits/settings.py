@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'jet.dashboard',
     'jet',
     'django.contrib.admin',
@@ -106,12 +107,12 @@ PASSWORD_HASHERS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'du',
-        'USER': 'sagar',
-        'PASSWORD': 'duitsalifsagar',
-        'HOST': '127.0.0.1',
+        'NAME': 'duits',
+        'USER': 'duits_user',
+        'PASSWORD': 'w9JPr46j8noOlIw2g2H5dCSkyWWkg9Bc',
+        'HOST': 'dpg-chih4n67avj2ivd0c5rg-a.oregon-postgres.render.com',
         'PORT': '5432',
     }
 }
@@ -122,7 +123,7 @@ EMAIL_HOST = 'smtp.gmail.com'  # SMTP server address
 EMAIL_PORT = 587  # SMTP server port
 EMAIL_USE_TLS = True  # Use TLS encryption
 EMAIL_HOST_USER = 'karmakersagar25@gmail.com'  # SMTP email account
-EMAIL_HOST_PASSWORD = 'zscqhxuiwuwwjtuz'  # SMTP email account password
+EMAIL_HOST_PASSWORD = 'sgjmdtbppgjleref'  # SMTP email account password
 DEFAULT_FROM_EMAIL = 'karmakersagar25@gmail.com'  # Default email address
 
 # Password validation
@@ -179,11 +180,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 
-
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# django jet theme 
+# django jet theme
 JET_THEMES = [
     {
         'theme': 'default',  # theme folder name

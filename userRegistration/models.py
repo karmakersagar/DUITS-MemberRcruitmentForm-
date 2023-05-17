@@ -166,17 +166,23 @@ Blood_Group=(
     ('AB+','AB+'),
     ('AB-','AB-'),
     ('O+','O+'),
-    ('O+','O+')
+    ('O-','O-')
+)
+situation=(
+    ('Pending', 'Pending'),
+    ('Accepted', 'Accepted'),
+    ('Rejected', 'Rejected')
 )
 class MyForm(models.Model):
+    
+    name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='media/', blank=True,
                               verbose_name='Please select a image', max_length=255)
-    name = models.CharField(max_length=100)
     department = models.CharField(max_length=100)
     session = models.CharField(max_length=100)
-    registration_number = models.CharField(max_length=100)
+    registration_number = models.CharField(max_length=100,unique=True)
     hall = models.CharField(max_length=100)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     fathers_name = models.CharField(max_length=100)
     mothers_name = models.CharField(max_length=100)
     present_address = models.CharField(max_length=100)
@@ -192,6 +198,7 @@ class MyForm(models.Model):
     hsc_institution = models.CharField(max_length=100)
     hsc_board = models.CharField(max_length=20,choices=Board_List)
     hsc_passing_year = models.CharField(max_length=100,choices=Passing_Year)
+    situation = models.CharField(max_length=50,null=True, choices= situation, default=  'Pending' )
     # multiselectfield
     Extra_CurriCular_Activities = MultiSelectField(choices=EXtra_Activities, default="", max_choices=5, max_length=255, validators=[MaxLengthValidator(255)])
     hobbies_interest = models.CharField(max_length=100)

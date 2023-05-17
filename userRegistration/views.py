@@ -15,11 +15,6 @@ from django.contrib.auth import logout
 from django.core.mail import send_mail
 from django.conf import settings
 
-
-
-
-
-
 @login_required(login_url='login')
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def home(request):
