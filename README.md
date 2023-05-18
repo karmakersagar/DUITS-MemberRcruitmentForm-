@@ -32,4 +32,4 @@ For more detailed instructions on how to create a Django app and connect it to a
 
 Note: Before running the script, ensure that you have Python 3 installed on your system.
 
-P.S. Deployed website link Click Here `[Click Here ] (https://duits.onrender.com/)`
+P.S. Deployed website link Click Here [Click Here ] (https://duits.onrender.com/)
