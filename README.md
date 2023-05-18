@@ -31,3 +31,5 @@ python3 manage.py runserver
 For more detailed instructions on how to create a Django app and connect it to a database, you can follow this [link](https://blog.nextideatech.com/how-to-create-a-django-app-and-connect-it-to-a-database/).
 
 Note: Before running the script, ensure that you have Python 3 installed on your system.
+
+P.S. Deployed website link Click Here `[Click Here ] (https://duits.onrender.com/)`
